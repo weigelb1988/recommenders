@@ -2,7 +2,7 @@ import argparse
 
 
 def add_download_args(parser):
-    group = parser.add_argument_group('format')
+    group = parser.add_argument_group('download')
     try:
          group.add_argument("--data_url", type=str, default="https://files.grouplens.org/datasets/movielens/ml-100k/u.data", help="URL to get the data from")
     
