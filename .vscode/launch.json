@@ -1,0 +1,77 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "download files",
+            "type": "python",
+            "request": "launch",
+            "program": "${cwd}/src/run.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "download",
+                "--data_url", "https://files.grouplens.org/datasets/movielens/ml-100k/u.data",
+                "--data_path", "${cwd}/src/data/download/ml-100k.data"
+            ]
+        },
+        {
+            "name": "random split files",
+            "type": "python",
+            "request": "launch",
+            "program": "${cwd}/src/run.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "split",
+                "--split_method", "random",
+                "--data_path", "${cwd}/src/data/download/ml-100k.data",
+                "--train_path", "${cwd}/src/data/download/random_train_ml-100k.data",
+                "--test_path", "${cwd}/src/data/download/random_test_ml-100k.data",
+                "--val_path", "${cwd}/src/data/download/random_val_ml-100k.data",
+                // "--ratio", "0.6", "0.2", "0.2",
+
+            ]
+        },
+        {
+            "name": "chrono split files",
+            "type": "python",
+            "request": "launch",
+            "program": "${cwd}/src/run.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "split",
+                "--split_method", "chrono",
+                "--data_path", "${cwd}/src/data/download/ml-100k.data",
+                "--train_path", "${cwd}/src/data/download/chrono_train_ml-100k.data",
+                "--test_path", "${cwd}/src/data/download/chrono_test_ml-100k.data",
+                "--val_path", "${cwd}/src/data/download/chrono_val_ml-100k.data",
+                // "--ratio", "0.6", "0.2", "0.2",
+                "--filter_by", "user",
+                "--min_samples", "10"
+            ]
+        },
+        {
+            "name": "strat split files",
+            "type": "python",
+            "request": "launch",
+            "program": "${cwd}/src/run.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "split",
+                "--split_method", "strat",
+                "--data_path", "${cwd}/src/data/download/ml-100k.data",
+                "--train_path", "${cwd}/src/data/download/strat_train_ml-100k.data",
+                "--test_path", "${cwd}/src/data/download/strat_test_ml-100k.data",
+                "--val_path", "${cwd}/src/data/download/strat_val_ml-100k.data",
+                // "--ratio", "0.6", "0.2", "0.2",
+                "--filter_by", "user",
+                "--min_samples", "10"
+            ]
+        },
+    ]
+}

@@ -17,6 +17,12 @@ if 'download' in groups:
     start = time.time()
     download.main(args)
     print(f'download time: {time.time()-start}')
+if 'split' in groups:
+    from data.format.splitters import split
+    start = time.time()
+    split.main(args)
+    print(f'split time: {time.time()-start}')
+
 if 'format' in groups:
     from src.data.format import format
     start = time.time()
